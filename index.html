@@ -7,12 +7,28 @@
   </head>
   <body>
 
-    <div class="" ng-app="">
-      <p>Input your name: <input type="text" name="" value="" ng-model="name"> </p>
-      <h1>Hello {{name}}</h1>
-    </div>
+    <!-- <div class="" ng-app="">
+      <p>Type your name: <input type="text" ng-model="name" /></p>
+      <p>You name is  <span ng-bind="name"></span> </p>
+    </div> -->
 
+    <!-- <div ng-app="" ng-init="firstName='John'">
+      <p>The name is <span ng-bind="firstName"></span></p>
+  </div> -->
 
+  <!-- My First Angular Application -->
+  <div class="" data-ng-app="myApp" data-ng-controller="myCtrl">
+    First Name : <input type="text" data-ng-model="firstName" /><br>
+    Last Name  : <input type='text' data-ng-model="lastName" /><br>
+    Your Fullname is : <span>{{firstName + " " + lastName}}</span>
+  </div>
 
+  <script>
+   var app = angular.module('myApp', []);
+   app.controller('myCtrl', function($scope){
+     $scope.firstName = "John",
+     $scope.lastName = "Jogar"
+   });
+  </script>
   </body>
 </html>
