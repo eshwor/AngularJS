@@ -1,0 +1,62 @@
+
+<!--
+Two Way Data binding that is what is the real angular. Directive ng-model helps to bind the two way data binding
+Let's she the example bellow.
+ -->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Two Databinding</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script type="text/javascript">
+
+    var myApp = angular.module("myApp", [])
+    .controller("myCtrl", function($scope){
+      var employee = {
+        firstname:"Ben",
+        lastname:"Hasting",
+        gender:"Male"
+      };
+      $scope.employee = employee;
+    });
+
+    </script>
+  </head>
+  <body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <table>
+        <tr>
+          <td>First Name</td>
+          <td><input type="text" ng-model="employee.firstname"/></td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td><input type="text" ng-model="employee.lastname"/></td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td><input type="text" ng-model="employee.gender"/></td>
+        </tr>
+      </table>
+      <br>
+      <table>
+        <tr>
+          <td>First Name</td>
+          <td>{{employee.firstname}}</td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td>{{employee.lastname}}</td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>{{employee.gender}}</td>
+        </tr>
+      </table>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,59 @@
+
+<!--
+ng-repeat is just like a loop in programming language
+ -->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Two Databinding</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script type="text/javascript">
+
+    var myApp = angular.module("myApp", []);
+    myApp.controller("myCtrl", function($scope){
+      var countries = [
+        {
+          name:"UK",
+          cities:[
+            { name:"London" },
+            { name:"Manchester" },
+            { name:"Birmingham" },
+          ]
+        },
+        {
+          name:"Nepal",
+          cities:[
+            { name:"Kathmandu" },
+            { name:"Pokhara" },
+            { name:"Lumbini" },
+          ]
+        },
+        {
+          name:"USA",
+          cities:[
+            { name:"Louisville" },
+            { name:"New York" },
+            { name:"Laxinton" },
+          ]
+        }
+
+      ];
+      $scope.countries = countries;
+    });
+
+    </script>
+  </head>
+  <body ng-app="myApp" ng-controller="myCtrl">
+      <ul>
+        <li ng-repeat="country in countries">
+            {{country.name}}
+            <ul>
+              <li ng-repeat="city in country.cities">{{city.name}}</li>
+            </ul>
+        </li>
+      </ul>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Controllers</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script type="text/javascript">
+
+
+    //Example One
+    var myApp = angular.module("myApp", []);
+    myApp.controller("myCtrl", function($scope){
+      $scope.message = "Hello";
+    });
+
+    //Example Two
+    var myModule = angular.module("myModule", []);
+    myModule.controller("myController", function($scope){
+      var employeeObj = {
+        firstname : "David",
+        lastname : "Jhankar",
+        gender : "Male"
+      };
+      $scope.employee = employeeObj; //register obj with $scope.employee
+    });
+
+    </script>
+  </head>
+  <body>
+    <!-- Using it on one line Example One -->
+    <!-- <div data-ng-app="myApp" data-ng-controller="myCtrl">
+      <p>{{message}}</p>
+    </div> -->
+
+    <!-- Using it on one line Example Two -->
+    <div data-ng-app="myModule" data-ng-controller="myController">
+      <p>First Name : {{employee.firstname}} </p>
+      <p>Last Name : {{employee.lastname}} </p>
+      <p>Gender : {{employee.gender}} </p>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,72 @@
+
+<!--
+ng-repeat is just like a loop in programming language
+ -->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Events</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script type="text/javascript">
+
+    var myApp = angular.module("myApp", []);
+    myApp.controller("myCtrl", function($scope){
+        var technologies = [
+          {name:"C#", likes:0, dislikes:0},
+          {name:"PHP", likes:0, dislikes:0},
+          {name:"JavaScript", likes:0, dislikes:0},
+          {name:"Angular", likes:0, dislikes:0}
+        ];
+        $scope.technologies = technologies;
+
+        //Lets create the function to increament the likes and dislikes properties
+        $scope.incrementLikes =  function(technology){
+          technology.likes++;
+        }
+
+        $scope.incrementDislikes =  function(technology){
+          technology.dislikes++;
+        }
+    });
+
+    </script>
+    <style media="screen">
+      table {
+        border: 2px solid skyblue;
+        padding: 1em;
+      }
+    tr {
+      border-bottom: 1px solid #DDD;
+    }
+    th, td {
+      padding:1em;
+    }
+    </style>
+  </head>
+  <body ng-app="myApp" ng-controller="myCtrl">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Likes</th>
+          <th>Dislikes</th>
+          <th>Like/Dislikes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="technology in technologies">
+          <td>{{technology.name}}</td>
+          <td>{{technology.likes}}</td>
+          <td>{{technology.dislikes}}</td>
+          <td>
+            <input type="button" value="Like" ng-click="incrementLikes(technology)"/>
+            <input type="button" value="Dislike" ng-click="incrementDislikes(technology)"/>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

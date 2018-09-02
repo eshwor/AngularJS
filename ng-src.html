@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular src</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script type="text/javascript">
+
+    var myApp = angular.module("myApp", []);
+    myApp.controller("myCtrl", function($scope){
+      var country = {
+        name:"Nepal",
+        capital:"KTM",
+        flag:"images/np.png"
+      };
+      $scope.country = country;
+    });
+
+    </script>
+  </head>
+  <body data-ng-app="myApp" data-ngq-controller="myCtrl">
+    <div>{{country.name}}</div>
+    <div>{{country.capital}}</div>
+    <div>
+      <img ng-src="{{country.flag}}" alt="{{country.name + ' flag'}}" style="width:150px; height:auto;">
+    </div>
+
+  </body>
+</html>

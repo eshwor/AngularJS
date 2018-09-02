@@ -1,0 +1,38 @@
+
+<!--
+ng-repeat is just like a loop in programming language
+ -->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Filters</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script type="text/javascript">
+
+      // var myApp = angular.module("myApp", []);
+      // myApp.controller("myCtrl", function($scope){
+      //   $scope.names = ['Jane','Carl','Hege','Mary','Kai','Gustav'];
+      // });
+
+      //CREATE THE CUSTOM FILTERS
+      var myApp = angular.module('myApp', []);
+      myApp.controller('myCtrl', function ($scope) {
+          $scope.msg = 'hello angular';
+      });
+      myApp.filter('myCapitalize', function() {
+        return function(x) {
+          return x.toUpperCase();
+        }
+    });
+
+    </script>
+
+  </head>
+  <body ng-app="myApp" ng-controller="myCtrl">
+    <span> {{msg | myCapitalize}} </span>
+
+  </body>
+</html>

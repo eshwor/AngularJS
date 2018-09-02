@@ -1,0 +1,49 @@
+
+<!--
+ng-repeat is just like a loop in programming language
+ -->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Show Hide</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script type="text/javascript">
+
+    var myApp = angular.module("myApp", []);
+    myApp.controller("myCtrl", function($scope){
+      var employees = [
+        {firstName:"ben", lastName:"Hasting", gender:"Male"},
+        {firstName:"Sara", lastName:"Paul", gender:"Female"},
+        {firstName:"Mark", lastName:"Holland", gender:"Male"},
+        {firstName:"Pam", lastName:"Macintosh", gender:"Female"},
+        {firstName:"Todd", lastName:"Barber", gender:"Male"}
+      ];
+      $scope.employees = employees;
+    });
+
+    </script>
+  </head>
+  <body ng-app="myApp" ng-controller="myCtrl">
+    <input type="checkbox" ng-model="hideGender"/> Hide Gender
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th ng-hide="hideGender">Gender</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="employee in employees">
+          <td>{{employee.firstName}}</td>
+          <td>{{employee.lastName}}</td>
+          <td ng-hide="hideGender">{{employee.gender}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </body>
+</html>
